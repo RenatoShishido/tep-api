@@ -1,17 +1,17 @@
-
+import { cpf as document } from 'cpf-cnpj-validator'; 
+import DocumentInvalidException from './validations/exceptions/DocumentInvalidException';
 export abstract class People {
 
-    private name: string
+    private name: string 
     private rg: string 
-    private cpf: string
-    private birthDate: Date
-
+    private cpf: string 
+    private birthDate: Date 
 
     constructor(name: string, rg: string, cpf: string, birthDate: Date) {
-        this.name = name
-        this.rg = rg
-        this.cpf = cpf
-        this.birthDate = birthDate
+        this.setName(name)
+        this.setRg(rg)
+        this.setCpf(cpf)
+        this.setBirthDate(birthDate)
     }
 
     getName() : string {
@@ -38,7 +38,9 @@ export abstract class People {
         this.rg = rg;
     }
 
-    setCpf(cpf: string) {
+    setCpf(cpf: string) { 
+        if(!document.isValid(cpf))
+            throw new DocumentInvalidException("CPF invalido!")
         this.cpf = cpf;
     }
 

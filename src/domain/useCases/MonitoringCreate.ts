@@ -8,15 +8,11 @@ export class MonitoringCreate{
         this.monitoring = monitoring
     }
 
-    createMonitoring(): Monitoring {
-        if(this.isPlaceValid())
-
-        return 
+    createMonitoring(): any {
+        return undefined;
     }
 
     isPlaceValid(): boolean {
-        
-
         return false;
     }
 

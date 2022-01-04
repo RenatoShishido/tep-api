@@ -1,15 +1,17 @@
 import { Monitor } from './Monitor';
 import { Student } from './Student';
 import { CheckMonitoring } from './CheckMonitoring';
+import Leasson from './Leasson';
 
 export class Monitoring {
 
     private student: Array<Student>
+    private leasson: Leasson
     private monitor: Monitor
     private place: string
     private startTime: Date 
     private endTime: Date
-    private checkMonitoring: CheckMonitoring | undefined
+    private checkMonitoring: CheckMonitoring
 
     constructor(student: Array<Student>, monitor: Monitor, place: string, startTime: Date, endTime: Date) {
         this.student = student
@@ -50,7 +52,7 @@ export class Monitoring {
         return this.endTime
     }
 
-    getCheckMonitoring(): CheckMonitoring | undefined {
+    getCheckMonitoring(): CheckMonitoring {
         return this.checkMonitoring 
     }
 
