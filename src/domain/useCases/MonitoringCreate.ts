@@ -1,4 +1,6 @@
 import { Monitoring } from '../entities/Monitoring';
+import { Student } from '../entities/Student';
+import { Monitor } from '../entities/Monitor';
 
 export class MonitoringCreate{
 
@@ -9,7 +11,7 @@ export class MonitoringCreate{
     }
 
     createMonitoring(): any {
-        return undefined;
+        return null;
     }
 
     isPlaceValid(): boolean {

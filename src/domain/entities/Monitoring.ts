@@ -13,13 +13,6 @@ export class Monitoring {
     private endTime: Date
     private checkMonitoring: CheckMonitoring
 
-    constructor(student: Array<Student>, monitor: Monitor, place: string, startTime: Date, endTime: Date) {
-        this.student = student
-        this.monitor = monitor
-        this.place = place
-        this.startTime = startTime
-        this.endTime = endTime
-    }
 
     isValidMonitoring(): boolean {
         if(this.getCheckMonitoring == undefined)
@@ -56,27 +49,41 @@ export class Monitoring {
         return this.checkMonitoring 
     }
 
-    setMonitor(monitor: Monitor) {
+    setMonitor(monitor: Monitor) : Monitoring {
+        if(monitor == null)
+            throw new Error("Ńeed monitor")
         this.monitor = monitor
+        return this;
     }
 
-    setStudent(student: Array<Student>) {
+    setStudent(student: Array<Student>) : Monitoring {
+        if(student == null || student.length == 0)
+            throw new Error("Ńeed student")
         this.student = student
+        return this;
     }
 
-    setPlace(place: string) {
+    setPlace(place: string) : Monitoring {
+        if(place == null)
+            throw new Error("Ńeed place")
         this.place = place
+        return this;
     }
 
-    setStartTime(startTime: Date) {
+    setStartTime(startTime: Date) : Monitoring {
         this.startTime = startTime
+        return this;
     }
 
-    setEndTime(endTime: Date) {
+    setEndTime(endTime: Date) : Monitoring {
+        if(this.startTime >= endTime)
+            throw new Error("The end time can't lesser or equal start time")
         this.endTime = endTime
+        return this;
     }
 
-    setCheckMonitoring(checkMonitoring: CheckMonitoring) {
+    setCheckMonitoring(checkMonitoring: CheckMonitoring) : Monitoring {
         this.checkMonitoring = checkMonitoring
+        return this;
     }
 }
